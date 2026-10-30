@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloom</title>
+<meta name="description" content="Je fabrique des outils pour Discord. Mes projets, en vrai temps réel depuis GitHub.">
+<link rel="stylesheet" href="style.css">
+<meta property="og:title" content="Bloom">
+<meta property="og:description" content="Je fabrique des outils pour Discord.">
+</head>
+<body>
+
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<main>
+
+    <header class="hero">
+        <img class="avatar" src="https://github.com/B-loom.png?size=240" alt="" width="120" height="120">
+        <h1>Bloom</h1>
+        <p class="tagline">
+            Je fabrique des outils pour Discord&nbsp;: des clients, des bots, des choses
+            qui marchent chez moi avant de marcher ailleurs.
+        </p>
+        <div class="links">
+            <a class="btn btn-main" href="https://github.com/B-loom">GitHub</a>
+            <a class="btn" href="https://discord.gg/TNTYSmy4mX">Discord</a>
+            <a class="btn" href="https://b-loom.github.io/discord-bot-client-Nebula/">Nebula</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Ce que je fais</h2>
+        <div class="grid">
+            <article class="card">
+                <h3>Des clients Discord</h3>
+                <p>
+                    <strong>Nebula</strong> réunit mes comptes et mes bots dans une seule
+                    application&nbsp;: une fenêtre par compte, le même client pour tous.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Des bots</h3>
+                <p>
+                    Des bots qui rendent un service précis sur mes serveurs, plutôt qu'un
+                    gros bot qui fait tout à moitié.
+                </p>
+            </article>
+            <article class="card">
+                <h3>En public</h3>
+                <p>
+                    Le code est sur GitHub, les versions sont publiées avec leur
+                    installateur, et ce qui change est écrit noir sur blanc.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <h2>Mes projets</h2>
+        <p class="muted small">
+            Cette liste est lue sur GitHub à chaque ouverture de la page&nbsp;: une nouvelle
+            version, un nouveau dépôt, et elle se met à jour toute seule.
+        </p>
+        <div id="repos" class="grid">
+            <p class="muted">Chargement…</p>
+        </div>
+    </section>
+
+    <footer>
+        <p class="muted small">
+            Ce site et <a href="https://github.com/B-loom/discord-bot-client-Nebula">Nebula</a>
+            ont été écrits avec <a href="https://claude.ai">Claude</a>, l'assistant d'Anthropic.
+        </p>
+    </footer>
+
+</main>
+
+<script>
+    /*
+     * The starfield: a few hundred points drifting slowly, redrawn on each frame. Kept
+     * deliberately small — it sits behind everything and must never cost more than the
+     * page it decorates.
+     */
+    (() => {
+        const canvas = document.getElementById("stars");
+        const ctx = canvas.getContext("2d");
+        let stars = [];
+
+        function build() {
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            const count = Math.min(260, Math.round((innerWidth * innerHeight) / 7000));
+            stars = Array.from({ length: count }, () => ({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 1.3 + 0.2,
+                a: Math.random() * 0.6 + 0.2,
+                s: Math.random() * 0.12 + 0.02,
+            }));
+        }
+
+        function frame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (const star of stars) {
+                star.y -= star.s;
+                if (star.y < -2) {
+                    star.y = canvas.height + 2;
+                    star.x = Math.random() * canvas.width;
+                }
+                ctx.globalAlpha = star.a;
+                ctx.fillStyle = "#dcd6ff";
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            requestAnimationFrame(frame);
+        }
+
+        addEventListener("resize", build);
+        build();
+
+        // Someone who asked for less motion should not be given a moving background
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) frame();
+        else {
+            ctx.globalAlpha = 0.5;
+            for (const star of stars) {
+                ctx.fillStyle = "#dcd6ff";
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+    })();
+
+    /*
+     * The projects are read from GitHub when the page opens rather than written here, so
+     * the list is never out of date and nothing has to be rebuilt after a release.
+     */
+    (async () => {
+        const holder = document.getElementById("repos");
+
+        const say = text => {
+            holder.innerHTML = "";
+            const p = document.createElement("p");
+            p.className = "muted";
+            p.textContent = text;
+            holder.append(p);
+        };
+
+        try {
+            const response = await fetch("https://api.github.com/users/B-loom/repos?sort=updated&per_page=100");
+            if (!response.ok) throw new Error("GitHub a répondu " + response.status);
+
+            const repos = (await response.json())
+                .filter(repo => !repo.fork && !repo.archived)
+                .sort((a, b) => b.stargazers_count - a.stargazers_count || Date.parse(b.pushed_at) - Date.parse(a.pushed_at));
+
+            if (!repos.length) return say("Aucun projet public pour l'instant.");
+
+            holder.innerHTML = "";
+            for (const repo of repos) {
+                const card = document.createElement("a");
+                card.className = "card repo";
+                card.href = repo.html_url;
+
+                const title = document.createElement("h3");
+                title.textContent = repo.name;
+
+                const text = document.createElement("p");
+                text.textContent = repo.description || "Pas encore de description.";
+
+                const meta = document.createElement("p");
+                meta.className = "meta";
+                const bits = [];
+                if (repo.language) bits.push(repo.language);
+                if (repo.stargazers_count) bits.push("★ " + repo.stargazers_count);
+                bits.push("mis à jour le " + new Date(repo.pushed_at).toLocaleDateString("fr-FR"));
+                meta.textContent = bits.join(" · ");
+
+                card.append(title, text, meta);
+                holder.append(card);
+            }
+        } catch (error) {
+            // GitHub limits how often an address may ask; saying so beats an empty box
+            say("Impossible de lire la liste des projets pour le moment. Elle est sur github.com/B-loom.");
+        }
+    })();
+</script>
+
+</body>
+</html>

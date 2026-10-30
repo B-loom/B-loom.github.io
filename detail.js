@@ -23,6 +23,23 @@ const el = (tag, className, text) => {
     return node;
 };
 
+/** Release notes are written in Markdown, where **this** means emphasis */
+function withBold(text) {
+    const node = document.createElement("span");
+    const parts = text.split(/**([^*]+)**/g);
+    parts.forEach((part, index) => {
+        if (!part) return;
+        node.append(index % 2 ? el("strong", null, part) : document.createTextNode(part));
+    });
+    return node;
+}
+
+function noteLine(tag, text) {
+    const node = document.createElement(tag);
+    node.append(withBold(text));
+    return node;
+}
+
 function row(label, value) {
     const line = el("div", "row");
     line.append(el("span", "row-label", label), el("span", "row-value", value));

@@ -67,6 +67,11 @@
         </div>
     </section>
 
+    <dialog id="detail" class="sheet">
+        <button class="sheet-close" id="detail-close" aria-label="Fermer">✕</button>
+        <div id="detail-body"></div>
+    </dialog>
+
     <footer>
         <p class="muted small">
             Ce site et <a href="https://github.com/B-loom/discord-bot-client-Nebula">Nebula</a>
@@ -76,7 +81,9 @@
 
 </main>
 
-<script>
+<script type="module">
+    import { openDetail } from "./detail.js";
+
     /*
      * The starfield: a few hundred points drifting slowly, redrawn on each frame. Kept
      * deliberately small — it sits behind everything and must never cost more than the
@@ -160,9 +167,10 @@
 
             holder.innerHTML = "";
             for (const repo of repos) {
-                const card = document.createElement("a");
+                const card = document.createElement("button");
                 card.className = "card repo";
-                card.href = repo.html_url;
+                card.type = "button";
+                card.addEventListener("click", () => openDetail(repo));
 
                 const title = document.createElement("h3");
                 title.textContent = repo.name;

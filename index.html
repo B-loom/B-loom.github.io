@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bloom</title>
-<meta name="description" content="Je fabrique des outils pour Discord. Mes projets, en vrai temps réel depuis GitHub.">
-<link rel="stylesheet" href="style.css">
+<meta name="description" content="Je fabrique des outils : des clients et des bots pour Discord, des scripts en Python, et de quoi me simplifier la journée.">
+<link rel="stylesheet" href="style.css?v=3">
 <meta property="og:title" content="Bloom">
-<meta property="og:description" content="Je fabrique des outils pour Discord.">
+<meta property="og:description" content="Des outils pour Discord, des scripts en Python, et de quoi me simplifier la journée.">
 </head>
 <body>
 
@@ -19,8 +19,9 @@
         <img class="avatar" src="https://github.com/B-loom.png?size=240" alt="" width="120" height="120">
         <h1>Bloom</h1>
         <p class="tagline">
-            Je fabrique des outils pour Discord&nbsp;: des clients, des bots, des choses
-            qui marchent chez moi avant de marcher ailleurs.
+            Je fabrique des outils&nbsp;: des clients et des bots pour Discord, des scripts
+            en Python, et de quoi me simplifier la journée. Souvent en ajoutant à un projet
+            existant ce qui lui manquait.
         </p>
         <div class="links">
             <a class="btn btn-main" href="https://github.com/B-loom">GitHub</a>
@@ -36,7 +37,21 @@
                 <h3>Des clients Discord</h3>
                 <p>
                     <strong>Nebula</strong> réunit mes comptes et mes bots dans une seule
-                    application&nbsp;: une fenêtre par compte, le même client pour tous.
+                    application : une fenêtre par compte, le même client pour tous.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Des scripts</h3>
+                <p>
+                    Du Python, surtout : automatiser ce que je refais trop souvent, trier
+                    des fichiers, récupérer des données, gagner du temps.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Ajouter ce qui manque</h3>
+                <p>
+                    Partir d'un projet qui existe déjà et lui ajouter les fonctions dont
+                    j'ai besoin, plutôt que tout réécrire depuis zéro.
                 </p>
             </article>
             <article class="card">
@@ -44,6 +59,13 @@
                 <p>
                     Des bots qui rendent un service précis sur mes serveurs, plutôt qu'un
                     gros bot qui fait tout à moitié.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Pour le quotidien</h3>
+                <p>
+                    De petites choses sans ambition qui me simplifient la journée, et qui
+                    finissent parfois par servir à d'autres.
                 </p>
             </article>
             <article class="card">
@@ -59,18 +81,13 @@
     <section>
         <h2>Mes projets</h2>
         <p class="muted small">
-            Cette liste est lue sur GitHub à chaque ouverture de la page&nbsp;: une nouvelle
-            version, un nouveau dépôt, et elle se met à jour toute seule.
+            Cette liste est lue sur GitHub à chaque ouverture de la page : un nouveau dépôt,
+            une nouvelle version, et elle se met à jour toute seule.
         </p>
         <div id="repos" class="grid">
             <p class="muted">Chargement…</p>
         </div>
     </section>
-
-    <dialog id="detail" class="sheet">
-        <button class="sheet-close" id="detail-close" aria-label="Fermer">✕</button>
-        <div id="detail-body"></div>
-    </dialog>
 
     <footer>
         <p class="muted small">
@@ -81,65 +98,8 @@
 
 </main>
 
-<script type="module">
-    import { openDetail } from "./detail.js";
-
-    /*
-     * The starfield: a few hundred points drifting slowly, redrawn on each frame. Kept
-     * deliberately small — it sits behind everything and must never cost more than the
-     * page it decorates.
-     */
-    (() => {
-        const canvas = document.getElementById("stars");
-        const ctx = canvas.getContext("2d");
-        let stars = [];
-
-        function build() {
-            canvas.width = innerWidth;
-            canvas.height = innerHeight;
-            const count = Math.min(260, Math.round((innerWidth * innerHeight) / 7000));
-            stars = Array.from({ length: count }, () => ({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 1.3 + 0.2,
-                a: Math.random() * 0.6 + 0.2,
-                s: Math.random() * 0.12 + 0.02,
-            }));
-        }
-
-        function frame() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (const star of stars) {
-                star.y -= star.s;
-                if (star.y < -2) {
-                    star.y = canvas.height + 2;
-                    star.x = Math.random() * canvas.width;
-                }
-                ctx.globalAlpha = star.a;
-                ctx.fillStyle = "#dcd6ff";
-                ctx.beginPath();
-                ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            requestAnimationFrame(frame);
-        }
-
-        addEventListener("resize", build);
-        build();
-
-        // Someone who asked for less motion should not be given a moving background
-        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) frame();
-        else {
-            ctx.globalAlpha = 0.5;
-            for (const star of stars) {
-                ctx.fillStyle = "#dcd6ff";
-                ctx.beginPath();
-                ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-    })();
-
+<script src="stars.js?v=3"></script>
+<script>
     /*
      * The projects are read from GitHub when the page opens rather than written here, so
      * the list is never out of date and nothing has to be rebuilt after a release.
@@ -167,10 +127,9 @@
 
             holder.innerHTML = "";
             for (const repo of repos) {
-                const card = document.createElement("button");
+                const card = document.createElement("a");
                 card.className = "card repo";
-                card.type = "button";
-                card.addEventListener("click", () => openDetail(repo));
+                card.href = "projet.html?repo=" + encodeURIComponent(repo.name);
 
                 const title = document.createElement("h3");
                 title.textContent = repo.name;
@@ -189,7 +148,7 @@
                 card.append(title, text, meta);
                 holder.append(card);
             }
-        } catch (error) {
+        } catch {
             // GitHub limits how often an address may ask; saying so beats an empty box
             say("Impossible de lire la liste des projets pour le moment. Elle est sur github.com/B-loom.");
         }

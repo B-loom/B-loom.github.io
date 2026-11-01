@@ -276,11 +276,9 @@ footer {
 .notes p { margin: 6px 0; }
 
 /* A project that is not on GitHub yet: written by hand, and said to be unfinished */
-.card.soon {
-    position: relative;
-    border-style: dashed;
-    border-color: rgb(139 108 255 / 40%);
-}
+.card.soon { position: relative; }
+
+.card.soon h3 { color: var(--brand-soft); }
 
 .tag {
     display: inline-block;

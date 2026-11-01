@@ -280,6 +280,14 @@ footer {
 
 .card.soon h3 { color: var(--brand-soft); }
 
+.tag + .tag { margin-left: 6px; }
+
+/* Said plainly: these ones may never be made */
+.tag-maybe {
+    background: rgb(160 155 196 / 14%);
+    color: rgb(160 155 196 / 90%);
+}
+
 .tag {
     display: inline-block;
     margin-bottom: 8px;

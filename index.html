@@ -180,33 +180,6 @@
     (async () => {
         const holder = document.getElementById("repos");
 
-        /*
-         * Celui-la n'est pas encore un depot : il est ecrit a la main et vient
-         * toujours apres les projets lus sur GitHub, le temps qu'il sorte.
-         */
-        const inProgress = () => {
-            const card = document.createElement("article");
-            card.className = "card soon";
-
-            const tag = document.createElement("span");
-            tag.className = "tag tag-wip";
-            tag.textContent = "En cours de développement";
-
-            const title = document.createElement("h3");
-            title.textContent = "Discord Bot Client Nebula Web";
-
-            const text = document.createElement("p");
-            text.textContent = "Nebula directement dans le navigateur, sans rien installer : "
-                + "les mêmes comptes et les mêmes bots, depuis n’importe quel ordinateur.";
-
-            const meta = document.createElement("p");
-            meta.className = "meta";
-            meta.textContent = "Web · pas encore publié";
-
-            card.append(tag, title, text, meta);
-            return card;
-        };
-
         const say = text => {
             holder.innerHTML = "";
             const p = document.createElement("p");
@@ -223,10 +196,7 @@
                 .filter(repo => !repo.fork && !repo.archived)
                 .sort((a, b) => b.stargazers_count - a.stargazers_count || Date.parse(b.pushed_at) - Date.parse(a.pushed_at));
 
-            if (!repos.length) {
-                say("Aucun projet public pour l'instant.");
-                return holder.append(inProgress());
-            }
+            if (!repos.length) return say("Aucun projet public pour l'instant.");
 
             holder.innerHTML = "";
             for (const repo of repos) {
@@ -251,12 +221,9 @@
                 card.append(title, text, meta);
                 holder.append(card);
             }
-
-            holder.append(inProgress());
         } catch {
             // GitHub limits how often an address may ask; saying so beats an empty box
             say("Impossible de lire la liste des projets pour le moment. Elle est sur github.com/B-loom.");
-            holder.append(inProgress());
         }
     })();
 </script>

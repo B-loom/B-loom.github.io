@@ -11,6 +11,8 @@
     const PURPOSE = {
         "discord-bot-client-Nebula":
             "Réunir mes comptes Discord et mes bots dans une seule application de bureau : une fenêtre par compte, le même client pour tous. C'est une version modifiée de DiscordBotClient, à laquelle j'ai ajouté ce qui me manquait.",
+        "discord-bot-client-web":
+            "Nebula directement dans le navigateur, sans rien installer : la connexion au Gateway se fait avec le token du bot, depuis n'importe quel ordinateur, sans extension ni serveur au milieu.",
         "B-loom.github.io":
             "Ma page personnelle. Elle lit mes projets sur GitHub à chaque ouverture, donc elle ne peut pas être en retard sur ce que je publie.",
     };

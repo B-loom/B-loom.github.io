@@ -220,7 +220,8 @@
             if (!response.ok) throw new Error("GitHub a répondu " + response.status);
 
             const repos = (await response.json())
-                .filter(repo => !repo.fork && !repo.archived)
+                // Nebula Web a deja sa carte ecrite plus bas, le temps qu'il sorte
+                .filter(repo => !repo.fork && !repo.archived && repo.name !== "discord-bot-client-web")
                 .sort((a, b) => b.stargazers_count - a.stargazers_count || Date.parse(b.pushed_at) - Date.parse(a.pushed_at));
 
             if (!repos.length) {

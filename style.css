@@ -282,6 +282,12 @@ footer {
 
 .tag + .tag { margin-left: 6px; }
 
+/* Celui-la, je suis en train de le faire */
+.tag-wip {
+    background: rgb(94 214 148 / 16%);
+    color: rgb(126 230 173 / 95%);
+}
+
 /* Said plainly: these ones may never be made */
 .tag-maybe {
     background: rgb(160 155 196 / 14%);

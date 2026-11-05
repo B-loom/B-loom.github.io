@@ -181,27 +181,32 @@
         const holder = document.getElementById("repos");
 
         /*
-         * Celui-la n'est pas encore un depot : il est ecrit a la main et vient
-         * toujours apres les projets lus sur GitHub, le temps qu'il sorte.
+         * Carte ecrite a la main pour le client web : elle pointe directement
+         * vers le site en ligne, et vient toujours apres les projets lus sur
+         * GitHub (le depot est exclu de la liste automatique plus bas).
          */
         const inProgress = () => {
-            const card = document.createElement("article");
-            card.className = "card soon";
+            const card = document.createElement("a");
+            card.className = "card repo";
+            card.href = "https://b-loom.github.io/discord-bot-client-web/";
+            card.target = "_blank";
+            card.rel = "noopener noreferrer";
 
             const tag = document.createElement("span");
-            tag.className = "tag tag-wip";
-            tag.textContent = "En cours de développement";
+            tag.className = "tag tag-live";
+            tag.textContent = "En ligne";
 
             const title = document.createElement("h3");
-            title.textContent = "Discord Bot Client Nebula Web";
+            title.textContent = "Discord Bot Client Web";
 
             const text = document.createElement("p");
-            text.textContent = "Nebula directement dans le navigateur, sans rien installer : "
-                + "les mêmes comptes et les mêmes bots, depuis n’importe quel ordinateur.";
+            text.textContent = "Un client Discord pour bot, directement dans le navigateur : "
+                + "tu colles le token et ton bot apparaît en ligne — serveurs, salons, "
+                + "membres et messages en direct, dans une interface façon Discord.";
 
             const meta = document.createElement("p");
             meta.className = "meta";
-            meta.textContent = "Web · pas encore publié";
+            meta.textContent = "Web · en ligne";
 
             card.append(tag, title, text, meta);
             return card;

@@ -288,6 +288,12 @@ footer {
     color: rgb(126 230 173 / 95%);
 }
 
+/* Celui-la est publie et accessible en ligne */
+.tag-live {
+    background: rgb(59 165 90 / 20%);
+    color: rgb(126 230 173 / 98%);
+}
+
 /* Said plainly: these ones may never be made */
 .tag-maybe {
     background: rgb(160 155 196 / 14%);

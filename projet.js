@@ -12,7 +12,7 @@
         "discord-bot-client-Nebula":
             "Réunir mes comptes Discord et mes bots dans une seule application de bureau : une fenêtre par compte, le même client pour tous. C'est une version modifiée de DiscordBotClient, à laquelle j'ai ajouté ce qui me manquait.",
         "discord-bot-client-web":
-            "Nebula directement dans le navigateur, sans rien installer : la connexion au Gateway se fait avec le token du bot, depuis n'importe quel ordinateur, sans extension ni serveur au milieu.",
+            "Un client Discord pour bot qui tourne entièrement dans le navigateur : on colle le token, et on voit son bot en ligne — serveurs, salons, membres et messages en direct, dans une interface façon Discord, sans rien installer. (L'historique et l'envoi de messages ne sont pas possibles depuis un navigateur.)",
         "B-loom.github.io":
             "Ma page personnelle. Elle lit mes projets sur GitHub à chaque ouverture, donc elle ne peut pas être en retard sur ce que je publie.",
     };

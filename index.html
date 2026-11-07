@@ -1,17 +1,21 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bloom</title>
-<meta name="description" content="Je fabrique des outils : des clients et des bots pour Discord, des scripts en Python, et de quoi me simplifier la journée.">
-<link rel="stylesheet" href="style.css?v=8">
+<meta name="description" content="I build tools: Discord clients and bots, Python scripts, and whatever makes my day easier.">
+<link rel="stylesheet" href="style.css?v=9">
+<link rel="alternate" hreflang="fr" href="fr/">
+<link rel="alternate" hreflang="en" href="./">
 <meta property="og:title" content="Bloom">
-<meta property="og:description" content="Des outils pour Discord, des scripts en Python, et de quoi me simplifier la journée.">
+<meta property="og:description" content="Discord tools, Python scripts, and whatever makes my day easier.">
 </head>
 <body>
 
 <canvas id="stars" aria-hidden="true"></canvas>
+
+<a class="lang" href="fr/" hreflang="fr" lang="fr">Français</a>
 
 <main>
 
@@ -19,9 +23,9 @@
         <img class="avatar" src="https://github.com/B-loom.png?size=240" alt="" width="120" height="120">
         <h1>Bloom</h1>
         <p class="tagline">
-            Je fabrique des outils&nbsp;: des clients et des bots pour Discord, des scripts
-            en Python, et de quoi me simplifier la journée. Souvent en ajoutant à un projet
-            existant ce qui lui manquait.
+            I build tools: Discord clients and bots, Python scripts, and whatever
+            makes my day easier. Often by adding to an existing project the thing it was
+            missing.
         </p>
         <div class="links">
             <a class="btn btn-main" href="https://github.com/B-loom">GitHub</a>
@@ -31,204 +35,148 @@
     </header>
 
     <section>
-        <h2>Ce que je fais</h2>
+        <h2>What I do</h2>
         <div class="grid">
             <article class="card">
-                <h3>Des clients Discord</h3>
+                <h3>Discord clients</h3>
                 <p>
-                    <strong>Nebula</strong> réunit mes comptes et mes bots dans une seule
-                    application : une fenêtre par compte, le même client pour tous.
+                    <strong>Nebula</strong> brings my accounts and my bots together in one
+                    application: one window per account, the same client for all of them.
                 </p>
             </article>
             <article class="card">
-                <h3>Des scripts</h3>
+                <h3>Scripts</h3>
                 <p>
-                    Du Python, surtout : automatiser ce que je refais trop souvent, trier
-                    des fichiers, récupérer des données, gagner du temps.
+                    Python, mostly: automating what I redo too often, sorting files,
+                    fetching data, saving time.
                 </p>
             </article>
             <article class="card">
-                <h3>Ajouter ce qui manque</h3>
+                <h3>Adding what is missing</h3>
                 <p>
-                    Partir d'un projet qui existe déjà et lui ajouter les fonctions dont
-                    j'ai besoin, plutôt que tout réécrire depuis zéro.
+                    Starting from a project that already exists and adding the features I
+                    need, rather than rewriting everything from scratch.
                 </p>
             </article>
             <article class="card">
-                <h3>Des bots</h3>
+                <h3>Bots</h3>
                 <p>
-                    Des bots qui rendent un service précis sur mes serveurs, plutôt qu'un
-                    gros bot qui fait tout à moitié.
+                    Bots that do one precise job on my servers, rather than one big bot
+                    that does everything by halves.
                 </p>
             </article>
             <article class="card">
-                <h3>Pour le quotidien</h3>
+                <h3>For everyday use</h3>
                 <p>
-                    De petites choses sans ambition qui me simplifient la journée, et qui
-                    finissent parfois par servir à d'autres.
+                    Small things with no ambition that make my day easier, and that
+                    sometimes end up being useful to other people.
                 </p>
             </article>
             <article class="card">
-                <h3>En public</h3>
+                <h3>In the open</h3>
                 <p>
-                    Le code est sur GitHub, les versions sont publiées avec leur
-                    installateur, et ce qui change est écrit noir sur blanc.
+                    The code is on GitHub, releases are published with their installer, and
+                    what changes is written down in plain words.
                 </p>
             </article>
         </div>
     </section>
 
     <section>
-        <h2>Mes projets</h2>
+        <h2>My projects</h2>
         <p class="muted small">
-            Cette liste est lue sur GitHub à chaque ouverture de la page : un nouveau dépôt,
-            une nouvelle version, et elle se met à jour toute seule.
+            This list is read from GitHub every time the page opens: a new repository, a
+            new release, and it updates itself.
         </p>
         <div id="repos" class="grid">
-            <p class="muted">Chargement…</p>
+            <p class="muted">Loading…</p>
         </div>
     </section>
 
     <section>
-        <h2>Ce que je prépare</h2>
+        <h2>What I am preparing</h2>
         <p class="muted small">
-            Les projets que j’ai prévu de faire. Rien n’est encore publié : chacun
-            rejoindra la liste du dessus le jour où il sortira.
+            The projects I have planned. Nothing is published yet: each one will join the
+            list above the day it comes out.
         </p>
         <div class="grid">
             <article class="card soon">
-                <span class="tag">Bientôt</span>
-                <h3>Bot Discord Nebula</h3>
+                <span class="tag">Soon</span>
+                <h3>Nebula Discord bot</h3>
                 <p>
-                    Surveiller la disponibilité de sites web, modérer un serveur et
-                    annoncer les mises à jour GitHub. En Python, avec des commandes slash.
+                    Watching websites for downtime, moderating a server and announcing
+                    GitHub releases. In Python, with slash commands.
                 </p>
-                <p class="meta">Python · pas encore publié</p>
+                <p class="meta">Python · not published yet</p>
             </article>
             <article class="card soon">
-                <span class="tag">Bientôt</span>
+                <span class="tag">Soon</span>
                 <h3>Spotify Overlay</h3>
                 <p>
-                    Une petite fenêtre posée par-dessus le reste, avec la pochette, le
-                    titre en cours, la barre de progression et les boutons de lecture.
+                    A small window sitting above everything else, with the cover art, the
+                    track playing, the progress bar and the playback buttons.
                 </p>
-                <p class="meta">Pas encore publié</p>
+                <p class="meta">Not published yet</p>
             </article>
             <article class="card soon">
-                <span class="tag">Bientôt</span>
-                <h3>Wallpaper PC</h3>
+                <span class="tag">Soon</span>
+                <h3>PC Wallpaper</h3>
                 <p>
-                    Un fond d’écran animé pour Windows, qui bouge doucement au lieu de
-                    rester une image fixe.
+                    An animated wallpaper for Windows, that moves gently instead of staying
+                    a still image.
                 </p>
-                <p class="meta">Pas encore publié</p>
+                <p class="meta">Not published yet</p>
             </article>
             <article class="card soon">
-                <span class="tag">Bientôt</span><span class="tag tag-maybe">Pas sûr</span>
+                <span class="tag">Soon</span><span class="tag tag-maybe">Not sure</span>
                 <h3>Discord Bot Client Nebula APK</h3>
                 <p>
-                    Nebula sur Android : une application pour garder mes comptes et mes bots
-                    sous la main quand je ne suis pas devant le PC.
+                    Nebula on Android: an application to keep my accounts and my bots at
+                    hand when I am away from the PC.
                 </p>
-                <p class="meta">Android · pas encore publié</p>
+                <p class="meta">Android · not published yet</p>
             </article>
             <article class="card soon">
-                <span class="tag">Bientôt</span><span class="tag tag-maybe">Pas sûr</span>
+                <span class="tag">Soon</span><span class="tag tag-maybe">Not sure</span>
                 <h3>Discord Switch 1</h3>
                 <p>
-                    Discord sur Nintendo Switch 1, par une console moddée : lire et écrire
-                    sur mes serveurs sans poser la console.
+                    Discord on a Nintendo Switch 1, through a modded console: reading and
+                    writing on my servers without putting the console down.
                 </p>
-                <p class="meta">Pas encore publié</p>
+                <p class="meta">Not published yet</p>
             </article>
             <article class="card soon">
-                <span class="tag">Bientôt</span><span class="tag tag-maybe">Pas sûr</span>
+                <span class="tag">Soon</span><span class="tag tag-maybe">Not sure</span>
                 <h3>Vencord APK</h3>
                 <p>
-                    Vencord et ses extensions sur Android, dans une application qui garde
-                    les réglages d’un téléphone à l’autre.
+                    Vencord and its extensions on Android, in an application that keeps the
+                    settings from one phone to the next.
                 </p>
-                <p class="meta">Android · pas encore publié</p>
+                <p class="meta">Android · not published yet</p>
             </article>
             <article class="card soon">
-                <span class="tag">Bientôt</span><span class="tag tag-maybe">Pas sûr</span>
+                <span class="tag">Soon</span><span class="tag tag-maybe">Not sure</span>
                 <h3>TikTokMod</h3>
                 <p>
-                    Une version modifiée de TikTok : télécharger les vidéos, retirer la
-                    publicité et reprendre la main sur ce que l’application affiche.
+                    A modified version of TikTok: downloading videos, removing the ads and
+                    taking back control of what the application shows.
                 </p>
-                <p class="meta">Android · pas encore publié</p>
+                <p class="meta">Android · not published yet</p>
             </article>
         </div>
     </section>
 
     <footer>
         <p class="muted small">
-            Ce site et <a href="https://github.com/B-loom/discord-bot-client-Nebula">Nebula</a>
-            ont été écrits avec <a href="https://claude.ai">Claude</a>, l'assistant d'Anthropic.
+            This site and <a href="https://github.com/B-loom/discord-bot-client-Nebula">Nebula</a>
+            were written with <a href="https://claude.ai">Claude</a>, Anthropic's assistant.
         </p>
     </footer>
 
 </main>
 
-<script src="stars.js?v=8"></script>
-<script>
-    /*
-     * The projects are read from GitHub when the page opens rather than written here, so
-     * the list is never out of date and nothing has to be rebuilt after a release.
-     */
-    (async () => {
-        const holder = document.getElementById("repos");
-
-        const say = text => {
-            holder.innerHTML = "";
-            const p = document.createElement("p");
-            p.className = "muted";
-            p.textContent = text;
-            holder.append(p);
-        };
-
-        try {
-            const response = await fetch("https://api.github.com/users/B-loom/repos?sort=updated&per_page=100");
-            if (!response.ok) throw new Error("GitHub a répondu " + response.status);
-
-            const repos = (await response.json())
-                .filter(repo => !repo.fork && !repo.archived)
-                .sort((a, b) => b.stargazers_count - a.stargazers_count || Date.parse(b.pushed_at) - Date.parse(a.pushed_at));
-
-            if (!repos.length) {
-                return say("Aucun projet public pour l'instant.");
-            }
-
-            holder.innerHTML = "";
-            for (const repo of repos) {
-                const card = document.createElement("a");
-                card.className = "card repo";
-                card.href = "projet.html?repo=" + encodeURIComponent(repo.name);
-
-                const title = document.createElement("h3");
-                title.textContent = repo.name;
-
-                const text = document.createElement("p");
-                text.textContent = repo.description || "Pas encore de description.";
-
-                const meta = document.createElement("p");
-                meta.className = "meta";
-                const bits = [];
-                if (repo.language) bits.push(repo.language);
-                if (repo.stargazers_count) bits.push("★ " + repo.stargazers_count);
-                bits.push("mis à jour le " + new Date(repo.pushed_at).toLocaleDateString("fr-FR"));
-                meta.textContent = bits.join(" · ");
-
-                card.append(title, text, meta);
-                holder.append(card);
-            }
-        } catch {
-            // GitHub limits how often an address may ask; saying so beats an empty box
-            say("Impossible de lire la liste des projets pour le moment. Elle est sur github.com/B-loom.");
-        }
-    })();
-</script>
+<script src="stars.js?v=9"></script>
+<script src="projets.js?v=9"></script>
 
 </body>
 </html>

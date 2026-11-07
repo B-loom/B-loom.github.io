@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloom</title>
+<meta name="description" content="Je fabrique des outils : des clients et des bots pour Discord, des scripts en Python, et de quoi me simplifier la journée.">
+<link rel="stylesheet" href="../style.css?v=9">
+<link rel="alternate" hreflang="en" href="../">
+<link rel="alternate" hreflang="fr" href="./">
+<meta property="og:title" content="Bloom">
+<meta property="og:description" content="Des outils pour Discord, des scripts en Python, et de quoi me simplifier la journée.">
+</head>
+<body>
+
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<a class="lang" href="../" hreflang="en" lang="en">English</a>
+
+<main>
+
+    <header class="hero">
+        <img class="avatar" src="https://github.com/B-loom.png?size=240" alt="" width="120" height="120">
+        <h1>Bloom</h1>
+        <p class="tagline">
+            Je fabrique des outils&nbsp;: des clients et des bots pour Discord, des scripts
+            en Python, et de quoi me simplifier la journée. Souvent en ajoutant à un projet
+            existant ce qui lui manquait.
+        </p>
+        <div class="links">
+            <a class="btn btn-main" href="https://github.com/B-loom">GitHub</a>
+            <a class="btn" href="https://discord.gg/TNTYSmy4mX">Discord</a>
+            <a class="btn" href="https://b-loom.github.io/discord-bot-client-Nebula/fr/">Nebula</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Ce que je fais</h2>
+        <div class="grid">
+            <article class="card">
+                <h3>Des clients Discord</h3>
+                <p>
+                    <strong>Nebula</strong> réunit mes comptes et mes bots dans une seule
+                    application : une fenêtre par compte, le même client pour tous.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Des scripts</h3>
+                <p>
+                    Du Python, surtout : automatiser ce que je refais trop souvent, trier
+                    des fichiers, récupérer des données, gagner du temps.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Ajouter ce qui manque</h3>
+                <p>
+                    Partir d'un projet qui existe déjà et lui ajouter les fonctions dont
+                    j'ai besoin, plutôt que tout réécrire depuis zéro.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Des bots</h3>
+                <p>
+                    Des bots qui rendent un service précis sur mes serveurs, plutôt qu'un
+                    gros bot qui fait tout à moitié.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Pour le quotidien</h3>
+                <p>
+                    De petites choses sans ambition qui me simplifient la journée, et qui
+                    finissent parfois par servir à d'autres.
+                </p>
+            </article>
+            <article class="card">
+                <h3>En public</h3>
+                <p>
+                    Le code est sur GitHub, les versions sont publiées avec leur
+                    installateur, et ce qui change est écrit noir sur blanc.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <h2>Mes projets</h2>
+        <p class="muted small">
+            Cette liste est lue sur GitHub à chaque ouverture de la page : un nouveau dépôt,
+            une nouvelle version, et elle se met à jour toute seule.
+        </p>
+        <div id="repos" class="grid">
+            <p class="muted">Chargement…</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Ce que je prépare</h2>
+        <p class="muted small">
+            Les projets que j’ai prévu de faire. Rien n’est encore publié : chacun
+            rejoindra la liste du dessus le jour où il sortira.
+        </p>
+        <div class="grid">
+            <article class="card soon">
+                <span class="tag">Bientôt</span>
+                <h3>Bot Discord Nebula</h3>
+                <p>
+                    Surveiller la disponibilité de sites web, modérer un serveur et
+                    annoncer les mises à jour GitHub. En Python, avec des commandes slash.
+                </p>
+                <p class="meta">Python · pas encore publié</p>
+            </article>
+            <article class="card soon">
+                <span class="tag">Bientôt</span>
+                <h3>Spotify Overlay</h3>
+                <p>
+                    Une petite fenêtre posée par-dessus le reste, avec la pochette, le
+                    titre en cours, la barre de progression et les boutons de lecture.
+                </p>
+                <p class="meta">Pas encore publié</p>
+            </article>
+            <article class="card soon">
+                <span class="tag">Bientôt</span>
+                <h3>Wallpaper PC</h3>
+                <p>
+                    Un fond d’écran animé pour Windows, qui bouge doucement au lieu de
+                    rester une image fixe.
+                </p>
+                <p class="meta">Pas encore publié</p>
+            </article>
+            <article class="card soon">
+                <span class="tag">Bientôt</span><span class="tag tag-maybe">Pas sûr</span>
+                <h3>Discord Bot Client Nebula APK</h3>
+                <p>
+                    Nebula sur Android : une application pour garder mes comptes et mes bots
+                    sous la main quand je ne suis pas devant le PC.
+                </p>
+                <p class="meta">Android · pas encore publié</p>
+            </article>
+            <article class="card soon">
+                <span class="tag">Bientôt</span><span class="tag tag-maybe">Pas sûr</span>
+                <h3>Discord Switch 1</h3>
+                <p>
+                    Discord sur Nintendo Switch 1, par une console moddée : lire et écrire
+                    sur mes serveurs sans poser la console.
+                </p>
+                <p class="meta">Pas encore publié</p>
+            </article>
+            <article class="card soon">
+                <span class="tag">Bientôt</span><span class="tag tag-maybe">Pas sûr</span>
+                <h3>Vencord APK</h3>
+                <p>
+                    Vencord et ses extensions sur Android, dans une application qui garde
+                    les réglages d’un téléphone à l’autre.
+                </p>
+                <p class="meta">Android · pas encore publié</p>
+            </article>
+            <article class="card soon">
+                <span class="tag">Bientôt</span><span class="tag tag-maybe">Pas sûr</span>
+                <h3>TikTokMod</h3>
+                <p>
+                    Une version modifiée de TikTok : télécharger les vidéos, retirer la
+                    publicité et reprendre la main sur ce que l’application affiche.
+                </p>
+                <p class="meta">Android · pas encore publié</p>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <p class="muted small">
+            Ce site et <a href="https://github.com/B-loom/discord-bot-client-Nebula">Nebula</a>
+            ont été écrits avec <a href="https://claude.ai">Claude</a>, l'assistant d'Anthropic.
+        </p>
+    </footer>
+
+</main>
+
+<script src="../stars.js?v=9"></script>
+<script src="../projets.js?v=9"></script>
+
+</body>
+</html>

@@ -23,7 +23,7 @@
 
     /** What each project is for, in my own words rather than a one-line description */
     const PURPOSE = {
-        "discord-bot-client-Nebula": [
+        "Voidcord": [
             "Réunir mes comptes Discord et mes bots dans une seule application de bureau : une fenêtre par compte, le même client pour tous. C'est une version modifiée de DiscordBotClient, à laquelle j'ai ajouté ce qui me manquait.",
             "Bringing my Discord accounts and my bots together in one desktop application: one window per account, the same client for all of them. It is a modified version of DiscordBotClient, to which I added what I was missing.",
         ],
